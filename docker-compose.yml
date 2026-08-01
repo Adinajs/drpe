@@ -1,0 +1,72 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: drpe-db
+    restart: always
+    environment:
+      POSTGRES_USER: drpe_user
+      POSTGRES_PASSWORD: drpe_pass
+      POSTGRES_DB: drpe_db
+      TZ: Asia/Karachi
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    container_name: drpe-backend
+    restart: always
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    depends_on:
+      - db
+    env_file:
+      - ./backend/.env
+    environment:
+      DATABASE_URL: postgresql+asyncpg://drpe_user:drpe_pass@db:5432/drpe_db
+      AI_PROVIDER: gemini
+      OLLAMA_BASE_URL: http://ollama:11434
+      TZ: Asia/Karachi
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - ./snapshots:/app/snapshots
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    container_name: drpe-frontend
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - "81:80"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      VITE_API_BASE_URL: "/api"
+      TZ: Asia/Karachi
+
+  ollama:
+    image: ollama/ollama
+    container_name: drpe-ollama
+    restart: always
+    ports:
+      - "11435:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    # Auto-pull the model on start
+    entrypoint: /bin/sh
+    command: -c "ollama serve & sleep 10 && ollama pull deepseek-r1:1.5b && wait"
+
+volumes:
+  postgres_data:
+  ollama_data:

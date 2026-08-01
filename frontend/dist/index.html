@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DRPE — Dynamic Risk Posture Evaluation</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡</text></svg>" />
+    <script>
+      window.onerror = function(msg, url, line, col, error) {
+        alert("CRITICAL UI ERROR: " + msg + "\nAt: " + url + ":" + line);
+        return false;
+      };
+      document.addEventListener("DOMContentLoaded", function() {
+        console.log("DRPE: Bootstrap initialized.");
+      });
+    </script>
+  <script type="module" crossorigin src="/assets/index-Dx9yHoMG.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DWy5vYYq.css">
+
+  <body class="bg-[#020617] text-slate-200 antialiased overflow-x-hidden">
+    <div id="root"></div>
+    <script>
+      setTimeout(() => {
+        const root = document.getElementById('root');
+        if (root && root.innerHTML === "") {
+          console.warn("DRPE: Global mount timeout. Check main.jsx.");
+        }
+      }, 5000);
+    </script>
+  </body>
+</html>

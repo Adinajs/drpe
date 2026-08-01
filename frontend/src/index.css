@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 2%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 2%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 2%;
+    --primary: 263 70% 41.8%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 5% 25%;
+    --accent: 255 92% 76%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 263 70% 41.8%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 215 25% 17.2%; /* #1F2937 */
+    --foreground: 210 40% 91.2%; /* #E5E7EB Body */
+    --card: 222 47% 11.2%;       /* #111827 KPI Card */
+    --card-foreground: 210 40% 96.1%; /* #F3F4F6 Heading */
+    --popover: 222 47% 11.2%;
+    --popover-foreground: 210 40% 96.1%;
+    --primary: 263 70% 41.8%;    /* #5B21B6 Main Indigo */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 215 25% 26.7%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 215 25% 26.7%;
+    --muted-foreground: 215 16% 66.9%; /* Brightened from 56.9% for dark mode legibility */
+    --accent: 255 92% 76% / 0.15;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 215 25% 26.7%;
+    --input: 215 25% 26.7%;
+    --ring: 263 70% 41.8%;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/10 dark:bg-card/80 backdrop-blur-xl border border-white/20 dark:border-white/10;
+  }
+
+  .glass-card {
+    @apply glass rounded-xl shadow-lg transition-all duration-300 hover:border-indigo-brand-500/20 hover:shadow-indigo-brand-500/10;
+  }
+
+  .cyber-grid {
+    background-size: 40px 40px;
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/20 rounded-full hover:bg-muted-foreground/40 transition-colors;
+}
+
+/* Chart Tooltip custom styling */
+.recharts-default-tooltip {
+  @apply glass border-none rounded-lg shadow-xl !important;
+}
+
+.recharts-tooltip-label {
+  @apply text-foreground font-semibold !important;
+}

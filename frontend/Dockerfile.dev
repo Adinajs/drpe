@@ -1,0 +1,16 @@
+# 🏗️ Development Stage
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Install dependencies first (better caching)
+COPY package*.json ./
+RUN npm install
+
+# Note: We don't COPY the rest of the files here because we will mount them as a volume
+# for real-time sync.
+
+EXPOSE 80
+
+# Run vite with host 0.0.0.0 to be accessible outside the container
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "80"]

@@ -1,0 +1,70 @@
+\documentclass[a4paper]{article}
+%\usepackage{simplemargins}
+
+%\usepackage[square]{natbib}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{multirow}
+\usepackage{makecell}
+
+\begin{document}
+
+\Large
+ \begin{center}  
+ Dynamic Risk Posture Evaluation Using Automated Threat Intelligence
+\vspace{2em}
+%\hspace{10pt}
+
+% Author names and affiliations
+\large
+
+
+\end{center}
+
+%\hspace{10pt}
+
+\normalsize
+
+One of the most urgent issues of contemporary enterprises is cybersecurity risk management, where manual, episodic assessments fail to consolidate real-time global threat intelligence with fine-grained technical telemetry. To address this, we describe DRPE (Dynamic Risk Posture Evaluation), a smart, fully containerized cybersecurity orchestration framework built using a high-performance FastAPI back-end, a React 18 enterprise dashboard, and a PostgreSQL relational database, coordinated by Docker Compose to be deployed in a single command.
+
+Technically at the heart of the platform, DRPE uses a proprietary multi-variable Risk Engine which combines local technical telemetry of the OpenVAS/GVM infrastructure with global threat intelligence feeds of AbuseIPDB and AlienVault OTX. This generates a normalized, context-specific security posture score reflecting both intrinsic severity and real-world exploitability. Furthermore, the platform uses a Dynamic AI Engine with Google Gemini 1.5 Flash to support strategic decision-making, converting complex CVE identifiers and CVSS vectors to natural-language mitigation policies and executive-friendly impact assessments.
+
+The system security is based on a stringent JWT authentication module alongside an immutable Activity Logging framework that provides auditability and proof of compliance. Client-side reporting (js PDF) generates executive compliance reports with negligible server load. Our experimental analysis indicates that the interactive 2D/3D Force-Directed Graph visualizations in the system significantly improve the speed and effectiveness of risk propagation analysis through network nodes as opposed to tabular lists of vulnerabilities.\\
+%\hspace{10pt}
+
+
+\vspace{1em}
+
+\begin{center}
+\begin{tabular}{ll}
+{\textbf{Keywords:}} & Cybersecurity, DRPE, React, FastAPI, PostgreSQL  \\ \vspace{0.5em}
+{\textbf{Project ID:}} & IT-F25-27             \\ \vspace{0.5em}
+{\textbf{Project Area/ Domains:}} & Information Technology, Cybersecurity              \\ \vspace{0.5em} 
+{\textbf{Supervisor Name:}} & Dr. Faisal Bashir Hussain    \\ \vspace{0.5em}
+{\textbf{Supervisor Designation:}} & Dean, Faculty of Engineering Sciences\\ \vspace{0.5em}
+{\textbf{Department:}} & Department of Information Technology    \\ \vspace{0.5em} 
+{\textbf{Supervisor Email:}} & fbhussain@bahria.edu.pk\\
+\end{tabular}
+\end{center}
+
+\vspace{1em}
+\noindent\textbf{Group Members Detail:}\\
+
+\begin{center}
+\begin{tabular}{|p{0.4\textwidth}|p{0.4\textwidth}|} 
+\hline
+\textbf{Member 1} & \textbf{Member 2}  \\
+\hline
+\makecell{Zainab Khawar \\ +92-332-1569733\\ \href{https://pk.linkedin.com/in/zainab-khawar-a963aa30b}{Linkedin}}
+&
+\makecell{Adina Saif Ullah \\ +92-331-5113307\\ \href{https://www.linkedin.com/in/adina-saif-ullah-629863257}{Linkedin}}
+  \\ 
+\hline
+
+\end{tabular}
+\end{center}
+
+\end{document}

@@ -1,0 +1,30 @@
+# Environments
+venv/
+env/
+.env
+.env.*
+
+# Cache & Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDEs
+.vscode/
+.idea/
+
+# Agent/AI folders
+.agents/
+.claude/
+.gemini/
+
+# Output/Data
+snapshots/
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
