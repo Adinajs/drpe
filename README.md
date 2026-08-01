@@ -94,6 +94,10 @@ Detailed architectural and integration guides can be found in the `docs/` direct
 
 *(Link your Demo Video here. You can upload the video to YouTube/Vimeo and link it, or upload the MP4 file to a `media/` folder in this repository and link directly to it.)*
 
+
+https://github.com/user-attachments/assets/1fd40c9e-58ab-4d45-b050-d0345d75d461
+
+
 ---
 
 ## 📄 License
